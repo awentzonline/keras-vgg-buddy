@@ -1,0 +1,10 @@
+*.DS_Store
+*.pyc
+*.swp
+*.egg-info
+build/
+!examples/README.md
+vgg16_weights.h5
+venv
+MANIFEST
+dist/
