@@ -29,6 +29,12 @@ def load_and_preprocess_image(path, width=None, square=False):
     return img
 
 
+def resize_image(x, img_width, img_height):
+    img = vgg16.img_from_vgg(img)
+    img = imresize(x, (img_height, img_width), interp='bicubic').astype('float32')
+    img = vgg16.img_to_vgg(img)
+    return img
+
 # util function to convert a tensor into a valid image
 def deprocess_image(x, contrast_percent=0.0, resize=None):
     x = vgg16.img_from_vgg(x)
