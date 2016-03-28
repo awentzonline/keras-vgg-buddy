@@ -10,8 +10,8 @@ def load_image(image_path):
 
 
 # util function to open, resize and format pictures into appropriate tensors
-def preprocess_image(x, img_width, img_height):
-    img = imresize(x, (img_height, img_width), interp='bicubic').astype('float32')
+def preprocess_image(img, img_width, img_height):
+    img = imresize(img, (img_height, img_width), interp='bicubic').astype('float32')
     img = vgg16.img_to_vgg(img)
     img = np.expand_dims(img, axis=0)
     return img
@@ -29,7 +29,7 @@ def load_and_preprocess_image(path, width=None, square=False):
     return img
 
 
-def resize_image(x, img_width, img_height):
+def resize_image(img, img_width, img_height):
     img = vgg16.img_from_vgg(img)
     img = imresize(x, (img_height, img_width), interp='bicubic').astype('float32')
     img = vgg16.img_to_vgg(img)
