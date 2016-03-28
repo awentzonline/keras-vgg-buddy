@@ -31,7 +31,7 @@ def load_and_preprocess_image(path, width=None, square=False):
 
 def resize_image(img, img_width, img_height):
     img = vgg16.img_from_vgg(img)
-    img = imresize(x, (img_height, img_width), interp='bicubic').astype('float32')
+    img = imresize(img, (img_height, img_width), interp='bicubic').astype('float32')
     img = vgg16.img_to_vgg(img)
     return img
 
