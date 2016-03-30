@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='keras-vgg-buddy',
-    version='0.0.4',
+    version='0.0.5',
     description='Your pal when you want some VGG16 with your Keras.',
     author='Adam Wentz',
     author_email='adam@adamwentz.com',
