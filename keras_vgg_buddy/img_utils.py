@@ -19,7 +19,7 @@ def preprocess_image(img, img_width, img_height):
 
 def load_and_preprocess_image(path, width=None, square=False):
     img = load_image(path)
-    n_channels, n_rows, n_cols = img.shape[::-1]
+    n_channels, n_cols, n_rows = img.shape[::-1]
     if width:
         n_rows = int(float(width) / n_cols * n_rows)
         n_cols = width
