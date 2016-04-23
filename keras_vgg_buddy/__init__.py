@@ -1,2 +1,3 @@
+from .imagenet import IMAGENET_CLASSES
 from .img_utils import *
-from .vgg16 import *
+from .models import *
