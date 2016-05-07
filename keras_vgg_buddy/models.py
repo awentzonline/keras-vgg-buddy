@@ -144,9 +144,9 @@ def get_layers(pool_mode='max', last_layer=None, weights_path='vgg16_weights.h5'
 
         Flatten(),
         Dense(4096, activation='relu', name='fc6'),
-        Dropout(0.5),
+        Dropout(0.5, name='fc6do'),
         Dense(4096, activation='relu', name='fc7'),
-        Dropout(0.5),
+        Dropout(0.5, name='fc7do'),
         Dense(1000, activation='softmax', name='vgg_classes'),
     ]
     if last_layer is not None:
