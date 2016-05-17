@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.misc import imread, imresize
 
-from . import vgg16
+from . import models
 
 
 # util function to open, resize and format pictures into appropriate tensors
@@ -12,7 +12,7 @@ def load_image(image_path):
 # util function to open, resize and format pictures into appropriate tensors
 def preprocess_image(img, img_width, img_height):
     img = imresize(img, (img_height, img_width), interp='bicubic').astype('float32')
-    img = vgg16.img_to_vgg(img)
+    img = models.img_to_vgg(img)
     img = np.expand_dims(img, axis=0)
     return img
 
@@ -30,14 +30,14 @@ def load_and_preprocess_image(path, width=None, square=False):
 
 
 def resize_image(img, img_width, img_height):
-    img = vgg16.img_from_vgg(img)
+    img = models.img_from_vgg(img)
     img = imresize(img, (img_height, img_width), interp='bicubic').astype('float32')
-    img = vgg16.img_to_vgg(img)
+    img = models.img_to_vgg(img)
     return img
 
 # util function to convert a tensor into a valid image
 def deprocess_image(x, contrast_percent=0.0, resize=None):
-    x = vgg16.img_from_vgg(x)
+    x = models.img_from_vgg(x)
     if contrast_percent:
         min_x, max_x = np.percentile(x, (contrast_percent, 100 - contrast_percent))
         x = (x - min_x) * 255.0 / (max_x - min_x)
